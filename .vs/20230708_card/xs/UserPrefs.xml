@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{97AF066F-584D-39EB-A971-649479B71D5B}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CardDrawSystem.cs">
+    <Files>
+      <File FileName="Assets/Scripts/CardDrawSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ScriptsCamera.cs" Line="29" Column="15" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c699fd9b-5f87-45ae-b954-f9dde3a5c911" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

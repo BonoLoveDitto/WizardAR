@@ -1,0 +1,4 @@
+repository "Ar_wizard@WizardAR@cloud"
+  path "/"
+    br "/main"
+    co "/main"
