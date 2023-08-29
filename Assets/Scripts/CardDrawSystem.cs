@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using SimpleCardDrawAndSpread_HandCard;
+using SimpleCardDrawAndSpread_CardDictionary;
 
 // Hello. Thank you for purchasing Asset. In this set, the pulled cards are moved to the hand part and aligned at regular intervals.
 // This script is not the correct answer, so please consider it as one of the implementation scripts. Thank you.
@@ -15,7 +16,17 @@ namespace SimpleCardDrawAndSpread_CardDrag
         MousePos,
     }
     public class CardDrawSystem : MonoBehaviour
-    {
+    {        
+        CardDictionary _CardDictionary;
+        public class Card
+        {
+            public int id;
+            public string name;
+            public int score;
+            public int turn;
+            public string portion;
+            public string skill;
+        }
         //Variable that sets the region where the card is used.
         [Header("Card Use Ground")]
         public Transform CardUseGround;
@@ -87,6 +98,15 @@ namespace SimpleCardDrawAndSpread_CardDrag
                 HandCardSystem input_HandCardSystem = newOb.GetComponent<HandCardSystem>();
                 input_HandCardSystem.CardIcon_Sprite.sprite = CardSprites[Rnum_CardSprite];
 
+                //add card information
+                _CardDictionary.CardDrawSystemCard = _CardDictionary.GetCardInfoByNumber(Rnum_CardSprite);    //目前沒有實體東西回傳回來
+                //CardDictionary Cards = CardDictionary.GetCardInfoByNumber(Rnum_CardSprite);
+                input_HandCardSystem.id = _CardDictionary.CardDrawSystemCard.id;
+                input_HandCardSystem.name = _CardDictionary.CardDrawSystemCard.name;
+                input_HandCardSystem.score = _CardDictionary.CardDrawSystemCard.score;
+                input_HandCardSystem.turn = _CardDictionary.CardDrawSystemCard.turn;
+                input_HandCardSystem.portion = _CardDictionary.CardDrawSystemCard.portion;
+                input_HandCardSystem.skill = _CardDictionary.CardDrawSystemCard.skill;
 
                 //Save to list for use in card sorting.
                 PlayerHandCardList.Add(newOb);

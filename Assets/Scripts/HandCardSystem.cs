@@ -11,6 +11,14 @@ namespace SimpleCardDrawAndSpread_HandCard
         //CardDrawSystem script recall settings.
         CardDrawSystem _CardDrawSystem;
 
+        [Header("Card Information")]
+        public int id;
+        public string name;
+        public int score;
+        public int turn;
+        public string portion;
+        public string skill;
+
         [Header("Card Image")]
         public SpriteRenderer CardIcon_Sprite;
         public SpriteRenderer[] CardLayers;
