@@ -70,8 +70,10 @@ namespace SimpleCardDrawAndSpread_CardDictionary{
 
         public Card GetCardInfoByNumber(int cardNumber)
         {
+            Debug.Log("GetCardInforByNumber");
             if (cardDictionary.ContainsKey(cardNumber))
             {
+                Debug.Log(cardNumber);
                 return cardDictionary[cardNumber];
             }
             return null;
