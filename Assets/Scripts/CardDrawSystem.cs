@@ -59,7 +59,7 @@ namespace SimpleCardDrawAndSpread_CardDrag
         void Start()
         {
             //The first time you start a game, you draw a card as many as the FirstDrawCount number.
-            _CardDictionary = new Carddicionary();
+            _CardDictionary = new CardDictionary();
             _CardDictionary.Init();
             StartCoroutine(PlayerCardDrawManager(FirstDrawCount));
         }

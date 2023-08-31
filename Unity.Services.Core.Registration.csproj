@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8d394b81-2888-6d8f-685a-47c4b961ee33}</ProjectGuid>
+    <ProjectGuid>{615c8910-ef49-927c-560c-86ef7423d199}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.Services.Core.Registration</AssemblyName>
@@ -292,34 +292,34 @@
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.25f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
-        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\20230708_card\20230708_card\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\Wizard AR\WizardAR\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
-        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\20230708_card\20230708_card\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\Wizard AR\WizardAR\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.YamlDotNet">
-        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\20230708_card\20230708_card\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
+        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\Wizard AR\WizardAR\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
-        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\20230708_card\20230708_card\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
+        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\Wizard AR\WizardAR\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
-        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\20230708_card\20230708_card\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
+        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\Wizard AR\WizardAR\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
     </Reference>
     <Reference Include="unityplastic">
-        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\20230708_card\20230708_card\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\Wizard AR\WizardAR\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
-        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\20230708_card\20230708_card\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
+        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\Wizard AR\WizardAR\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\20230708_card\20230708_card\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\Wizard AR\WizardAR\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="ReportGeneratorMerged">
-        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\20230708_card\20230708_card\Library\PackageCache\com.unity.testtools.codecoverage@1.2.3\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\Wizard AR\WizardAR\Library\PackageCache\com.unity.testtools.codecoverage@1.2.3\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\20230708_card\20230708_card\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.0\Runtime\Newtonsoft.Json.dll</HintPath>
+        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\Wizard AR\WizardAR\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.0\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.25f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -688,47 +688,47 @@
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.25f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\20230708_card\20230708_card\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\Wizard AR\WizardAR\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\20230708_card\20230708_card\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+        <HintPath>C:\Users\D0947996\OneDrive - 逢甲大學\桌面\畢業專題\Wizard AR\WizardAR\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.Services.Core.Internal.csproj">
-      <Project>{3935a860-2d96-b107-e504-574bf572e80a}</Project>
+      <Project>{40574d7c-058f-c65b-0e76-0f28cb0abfe5}</Project>
       <Name>Unity.Services.Core.Internal</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Device.csproj">
-      <Project>{3b9abeef-d256-f5b1-1ef6-fe525b71a75f}</Project>
+      <Project>{201fa461-371d-f32e-00c0-dfdae40a35c6}</Project>
       <Name>Unity.Services.Core.Device</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Environments.csproj">
-      <Project>{00cd7594-67d4-d566-389a-5f89c1375104}</Project>
+      <Project>{23928578-26dc-aa8b-7f83-7bf72925485a}</Project>
       <Name>Unity.Services.Core.Environments</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Environments.Internal.csproj">
-      <Project>{3c25d752-52d1-c480-faa9-086a96252cb2}</Project>
+      <Project>{610f5cd0-a815-c251-f03f-dffe31f363ef}</Project>
       <Name>Unity.Services.Core.Environments.Internal</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Configuration.csproj">
-      <Project>{5127af66-09c9-95c4-3592-b192a9ab79a1}</Project>
+      <Project>{27f1c1cd-dd3c-09d1-a662-60ff77ee639c}</Project>
       <Name>Unity.Services.Core.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.csproj">
-      <Project>{d8a9f4ce-4318-882f-c915-a847588929fb}</Project>
+      <Project>{9a3bf345-8bb3-a88b-610c-e1a76a269df0}</Project>
       <Name>Unity.Services.Core</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Telemetry.csproj">
-      <Project>{0ed7f2f7-0319-12c7-4175-a3c98befb7ef}</Project>
+      <Project>{40e2f1d1-3a2d-85db-ac7c-129083938856}</Project>
       <Name>Unity.Services.Core.Telemetry</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Scheduler.csproj">
-      <Project>{17580e1f-7c7d-b30d-9865-c1875b3213e5}</Project>
+      <Project>{1d44a99e-7b5a-2a30-15c2-66ea76cb01b2}</Project>
       <Name>Unity.Services.Core.Scheduler</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Threading.csproj">
-      <Project>{107792db-bd2b-1f14-e0c5-0c51d7d7ee31}</Project>
+      <Project>{6708c1b2-7f0a-46bd-e470-85cfe1db817f}</Project>
       <Name>Unity.Services.Core.Threading</Name>
     </ProjectReference>
   </ItemGroup>
