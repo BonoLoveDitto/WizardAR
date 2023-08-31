@@ -19,7 +19,7 @@ namespace SimpleCardDrawAndSpread_CardDictionary{
         public Card CardDrawSystemCard = new Card();
         public Dictionary<int, Card> cardDictionary = new Dictionary<int, Card>();
         // Start is called before the first frame update
-        void Start()
+        public void Init()
         {
             int cardNumber = 0;
             // 藥水卡(IDNumber, Name, Score, Turn, Portion, Skill)
@@ -66,6 +66,7 @@ namespace SimpleCardDrawAndSpread_CardDictionary{
                 cardDictionary.Add(cardNumber, CardInfo);
                 cardNumber++;
             }
+            Debug.Log("CardDictionary");
         }
 
         public Card GetCardInfoByNumber(int cardNumber)
