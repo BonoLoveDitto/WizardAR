@@ -18,15 +18,6 @@ namespace SimpleCardDrawAndSpread_CardDrag
     public class CardDrawSystem : MonoBehaviour
     {        
         CardDictionary _CardDictionary;
-        public class Card
-        {
-            public int id;
-            public string name;
-            public int score;
-            public int turn;
-            public string portion;
-            public string skill;
-        }
         //Variable that sets the region where the card is used.
         [Header("Card Use Ground")]
         public Transform CardUseGround;
@@ -68,6 +59,7 @@ namespace SimpleCardDrawAndSpread_CardDrag
         void Start()
         {
             //The first time you start a game, you draw a card as many as the FirstDrawCount number.
+            _CardDictionary = new Carddicionary();
             StartCoroutine(PlayerCardDrawManager(FirstDrawCount));
         }
 
