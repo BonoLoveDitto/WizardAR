@@ -4,17 +4,17 @@ using SimpleCardDrawAndSpread_CardDrag;
 using UnityEngine;
 
 namespace SimpleCardDrawAndSpread_CardDictionary{
-    public class CardDictionary : MonoBehaviour
+    public class Card
     {
-        public class Card
-        {
             public int id;
             public string name;
             public int score;
             public int turn;
             public string portion;
             public string skill;
-        }
+    }
+    public class CardDictionary : MonoBehaviour
+    {
         public List<Card> Cards = new List<Card>();
         public Card CardDrawSystemCard = new Card();
         public Dictionary<int, Card> cardDictionary = new Dictionary<int, Card>();
