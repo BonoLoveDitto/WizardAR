@@ -31,7 +31,7 @@ namespace SimpleCardDrawAndSpread_CardDrag
         public GameObject CardOb;
         public List<Sprite> CardSprites;
         public float CardDrawDelay;
-        [HideInInspector] public List<GameObject> PlayerHandCardList;
+        /*[HideInInspector]*/ public List<GameObject> PlayerHandCardList;
 
         [Space(10)]
         public int FirstDrawCount;
@@ -54,6 +54,8 @@ namespace SimpleCardDrawAndSpread_CardDrag
         [Header("Card Move Speed")]
         public float CardSpeed_Draw;
         public float CardSpeed_HandSpread;
+
+        public bool CardDelete = false;
 
         // Start is called before the first frame update
         void Start()
@@ -90,9 +92,9 @@ namespace SimpleCardDrawAndSpread_CardDrag
                 //Change the central image of the card that you created using Rnum_CardSprite, which contains arbitrary numbers.
                 HandCardSystem input_HandCardSystem = newOb.GetComponent<HandCardSystem>();
                 input_HandCardSystem.CardIcon_Sprite.sprite = CardSprites[Rnum_CardSprite];
-
+                
                 //add card information
-                _CardDictionary.CardDrawSystemCard = _CardDictionary.GetCardInfoByNumber(Rnum_CardSprite);    //目前沒有實體東西回傳回來
+                _CardDictionary.CardDrawSystemCard = _CardDictionary.GetCardInfoByNumber(Rnum_CardSprite);    
                 //CardDictionary Cards = CardDictionary.GetCardInfoByNumber(Rnum_CardSprite);
                 input_HandCardSystem.id = _CardDictionary.CardDrawSystemCard.id;
                 input_HandCardSystem.name = _CardDictionary.CardDrawSystemCard.name;
@@ -126,8 +128,9 @@ namespace SimpleCardDrawAndSpread_CardDrag
             {
                 if (PlayerHandCardList[checkcount] == null)
                 {
+                    Debug.Log("Have empty object");
                     PlayerHandCardList.RemoveAt(checkcount);
-
+                    CardDelete = true;
                     checkcount = 0;
                 }
                 else
@@ -215,6 +218,22 @@ namespace SimpleCardDrawAndSpread_CardDrag
 
             //
 
+        }
+
+        //每次打出一張牌，都會將生效回合-1
+        public void countTurn() {
+            if (CardDelete) {
+                Debug.Log("CardDelete" + CardDelete);
+                for (int i = 0; i < PlayerHandCardList.Count; i++){
+                    HandCardSystem input_HandCardSystem = PlayerHandCardList[i].GetComponent<HandCardSystem>();
+                    input_HandCardSystem.turn = input_HandCardSystem.turn - 1;
+                    Debug.Log("turn" + input_HandCardSystem.turn);
+                }
+                CardDelete = false;
+            }
+            else{
+                Debug.Log("CardDelete" + CardDelete);
+            }
         }
     }
 }

@@ -165,10 +165,12 @@ namespace SimpleCardDrawAndSpread_HandCard
                 {
                     //Remove the used cards from the list and re-align them with the layers of the cards in your hand.
                     _CardDrawSystem.PlayerHandCardList.RemoveAt(HandCardNumber);
+                    _CardDrawSystem.CardDelete = true;
+                    _CardDrawSystem.countTurn();                                    
                     _CardDrawSystem.Button_CardDraw_Manager();
                     //_CardDrawSystem.CardLayerCheckManager();
                     //_CardDrawSystem.CardSpreadSettingManager();
-
+                         
                     //When the numerical alignment is complete, use automatic movement to move the card in your hand to that position.
                     for (int i = 0; i < _CardDrawSystem.PlayerHandCardList.Count; i++)
                     {
