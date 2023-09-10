@@ -163,11 +163,24 @@ namespace SimpleCardDrawAndSpread_HandCard
             {
                 if (Vector2.Distance(this.transform.position, _CardDrawSystem.CardUseGround.position) < _CardDrawSystem.CardUseDistance)
                 {
+                    Debug.Log("OnMoseUp");
+                    //將準備移除的卡片加入移除卡片的List中
+                    HandCardSystem inputHandCardSystem = _CardDrawSystem.PlayerHandCardList[HandCardNumber].GetComponent<HandCardSystem>();
+                    _CardDrawSystem.RemoveCardList.Add(inputHandCardSystem);
+
                     //Remove the used cards from the list and re-align them with the layers of the cards in your hand.
                     _CardDrawSystem.PlayerHandCardList.RemoveAt(HandCardNumber);
-                    _CardDrawSystem.CardDelete = true;
-                    _CardDrawSystem.countTurn();                                    
-                    _CardDrawSystem.Button_CardDraw_Manager();
+                    _CardDrawSystem.RoundCards[_CardDrawSystem.round] = _CardDrawSystem.RoundCards[_CardDrawSystem.round] - 1;
+                    Debug.Log("RoundCards[" + _CardDrawSystem.round + "]: " + _CardDrawSystem.RoundCards[_CardDrawSystem.round]);
+                    
+                    //如果該回合卡片丟完了，將所以丟出去卡片的生效回合(turn)減1，並將回合+1及抽卡，進入下一回合
+                    if (_CardDrawSystem.RoundCards[_CardDrawSystem.round] <= 0) {
+                        Debug.Log("Round end!!");
+                        _CardDrawSystem.CardDelete = true;
+                        _CardDrawSystem.countTurn();             
+                        _CardDrawSystem.round = _CardDrawSystem.round + 1;                                                       
+                        _CardDrawSystem.Button_CardDraw_Manager(); 
+                    }
                     //_CardDrawSystem.CardLayerCheckManager();
                     //_CardDrawSystem.CardSpreadSettingManager();
                          

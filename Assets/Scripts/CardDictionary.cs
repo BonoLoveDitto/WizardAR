@@ -23,12 +23,12 @@ namespace SimpleCardDrawAndSpread_CardDictionary{
         {
             int cardNumber = 0;
             // 藥水卡(IDNumber, Name, Score, Turn, Portion, Skill)
-            Cards.Add(new Card() { id = cardNumber++, name = "長鼻子", score = 2, turn = 0, portion = "Nose", skill = "" }); //turn = 3
-            Cards.Add(new Card() { id = cardNumber++, name = "巫婆鼻", score = 3, turn = 1, portion = "Nose", skill = "" }); //turn = 4
-            Cards.Add(new Card() { id = cardNumber++, name = "豬鼻", score = 5, turn = 2, portion = "Nose", skill = "" }); //turn = 6
+            Cards.Add(new Card() { id = cardNumber++, name = "長鼻子", score = 2, turn = 3, portion = "Nose", skill = "" }); //turn = 3
+            Cards.Add(new Card() { id = cardNumber++, name = "巫婆鼻", score = 3, turn = 4, portion = "Nose", skill = "" }); //turn = 4
+            Cards.Add(new Card() { id = cardNumber++, name = "豬鼻", score = 5, turn = 6, portion = "Nose", skill = "" }); //turn = 6
             Cards.Add(new Card() { id = cardNumber++, name = "伏地魔", score = 4, turn = 3, portion = "Nose", skill = "" }); //turn = 5
-            Cards.Add(new Card() { id = cardNumber++, name = "厚道", score = 2, turn = 4, portion = "Chin", skill = "" }); //turn = 3
-            Cards.Add(new Card() { id = cardNumber++, name = "克蘇魯", score = 6, turn = 7, portion = "Chin", skill = "" });
+            Cards.Add(new Card() { id = cardNumber++, name = "厚道", score = 2, turn = 5, portion = "Chin", skill = "" }); //turn = 3
+            Cards.Add(new Card() { id = cardNumber++, name = "克蘇魯", score = 6, turn = 3, portion = "Chin", skill = "" });
             Cards.Add(new Card() { id = cardNumber++, name = "屁屁下巴", score = 3, turn = 4, portion = "Chin", skill = "" });
             Cards.Add(new Card() { id = cardNumber++, name = "顏色", score = 2, turn =  3, portion = "EyeBrow", skill = "" });
             Cards.Add(new Card() { id = cardNumber++, name = "粗眉毛", score = 3, turn = 4, portion = "EyeBrow", skill = "" });

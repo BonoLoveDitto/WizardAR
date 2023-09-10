@@ -31,7 +31,7 @@ namespace SimpleCardDrawAndSpread_CardDrag
         public GameObject CardOb;
         public List<Sprite> CardSprites;
         public float CardDrawDelay;
-        /*[HideInInspector]*/ public List<GameObject> PlayerHandCardList;
+        public List<GameObject> PlayerHandCardList;
 
         [Space(10)]
         public int FirstDrawCount;
@@ -56,6 +56,9 @@ namespace SimpleCardDrawAndSpread_CardDrag
         public float CardSpeed_HandSpread;
 
         public bool CardDelete = false;
+        public List<HandCardSystem> RemoveCardList = new List<HandCardSystem>();         //被丟出去的卡片,而且turn不會0
+        public List<int> RoundCards = new List<int> {1,1,2,1,1,2};                          //每回合可以丟出去的卡片數
+        public int round = 0;                               //第幾回合
 
         // Start is called before the first frame update
         void Start()
@@ -63,6 +66,7 @@ namespace SimpleCardDrawAndSpread_CardDrag
             //The first time you start a game, you draw a card as many as the FirstDrawCount number.
             _CardDictionary = new CardDictionary();
             _CardDictionary.Init();
+            //public List<RemoveCard> RemoveCardList = new List<RemoveCard>();
             StartCoroutine(PlayerCardDrawManager(FirstDrawCount));
         }
 
@@ -75,6 +79,8 @@ namespace SimpleCardDrawAndSpread_CardDrag
         public void Button_CardDraw_Manager()
         {
             //Draw cards as many as the NomalDrawCount number by recalling a particular button or function.
+            Debug.Log("Button_cardDraw_Manager");
+            Debug.Log("Round: " + (round + 1));
             StartCoroutine(PlayerCardDrawManager(NomalDrawCount));
         }
 
@@ -223,16 +229,16 @@ namespace SimpleCardDrawAndSpread_CardDrag
         //每次打出一張牌，都會將生效回合-1
         public void countTurn() {
             if (CardDelete) {
-                Debug.Log("CardDelete" + CardDelete);
-                for (int i = 0; i < PlayerHandCardList.Count; i++){
-                    HandCardSystem input_HandCardSystem = PlayerHandCardList[i].GetComponent<HandCardSystem>();
-                    input_HandCardSystem.turn = input_HandCardSystem.turn - 1;
-                    Debug.Log("turn" + input_HandCardSystem.turn);
+                Debug.Log("CardDelete: " + CardDelete);
+                for (int i = 0; i < RemoveCardList.Count; i++){
+                    RemoveCardList[i].turn = RemoveCardList[i].turn - 1;
+                    Debug.Log("id: " + i);
+                    Debug.Log("turn: " + RemoveCardList[i].turn);
                 }
                 CardDelete = false;
             }
             else{
-                Debug.Log("CardDelete" + CardDelete);
+                Debug.Log("CardDelete: " + CardDelete);
             }
         }
     }
