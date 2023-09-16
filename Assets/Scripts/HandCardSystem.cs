@@ -164,34 +164,43 @@ namespace SimpleCardDrawAndSpread_HandCard
                 if (Vector2.Distance(this.transform.position, _CardDrawSystem.CardUseGround.position) < _CardDrawSystem.CardUseDistance)
                 {
                     Debug.Log("OnMoseUp");
-                    //將準備移除的卡片加入移除卡片的List中
-                    HandCardSystem inputHandCardSystem = _CardDrawSystem.PlayerHandCardList[HandCardNumber].GetComponent<HandCardSystem>();
-                    _CardDrawSystem.RemoveCardList.Add(inputHandCardSystem);
-
-                    //Remove the used cards from the list and re-align them with the layers of the cards in your hand.
-                    _CardDrawSystem.PlayerHandCardList.RemoveAt(HandCardNumber);
-                    _CardDrawSystem.RoundCards[_CardDrawSystem.round] = _CardDrawSystem.RoundCards[_CardDrawSystem.round] - 1;
-                    Debug.Log("RoundCards[" + _CardDrawSystem.round + "]: " + _CardDrawSystem.RoundCards[_CardDrawSystem.round]);
                     
-                    //如果該回合卡片丟完了，將所以丟出去卡片的生效回合(turn)減1，並將回合+1及抽卡，進入下一回合
-                    if (_CardDrawSystem.RoundCards[_CardDrawSystem.round] <= 0) {
-                        Debug.Log("Round end!!");
-                        _CardDrawSystem.CardDelete = true;
-                        _CardDrawSystem.countTurn();             
-                        _CardDrawSystem.round = _CardDrawSystem.round + 1;                                                       
-                        _CardDrawSystem.Button_CardDraw_Manager(); 
+                    HandCardSystem inputHandCardSystem = _CardDrawSystem.PlayerHandCardList[HandCardNumber].GetComponent<HandCardSystem>();
+                    
+                    //第一回合只能丟咒語卡
+                    if(_CardDrawSystem.round == 0 && inputHandCardSystem.portion == "咒語"){      //記得改if(_CardDrawSystem.round == 0 && inputHandCardSystem.portion != "咒語")
+                        Debug.Log("第一回合只能丟咒語卡");
                     }
-                    //_CardDrawSystem.CardLayerCheckManager();
-                    //_CardDrawSystem.CardSpreadSettingManager();
-                         
-                    //When the numerical alignment is complete, use automatic movement to move the card in your hand to that position.
-                    for (int i = 0; i < _CardDrawSystem.PlayerHandCardList.Count; i++)
-                    {
-                        _CardDrawSystem.PlayerHandCardList[i].GetComponent<HandCardSystem>().HandSpreadTrigger = true;
-                    }
+                    else{ 
+                        Debug.Log("不是第一回合或者是咒語卡");
+                        //將準備移除的卡片加入移除卡片的List中
+                        _CardDrawSystem.RemoveCardList.Add(inputHandCardSystem);
 
-                    //Destroy used card.
-                    Destroy(this.gameObject);
+                        //Remove the used cards from the list and re-align them with the layers of the cards in your hand.
+                        _CardDrawSystem.PlayerHandCardList.RemoveAt(HandCardNumber);
+                        _CardDrawSystem.RoundCards[_CardDrawSystem.round] = _CardDrawSystem.RoundCards[_CardDrawSystem.round] - 1;
+                        Debug.Log("RoundCards[" + _CardDrawSystem.round + "]: " + _CardDrawSystem.RoundCards[_CardDrawSystem.round]);
+                    
+                        //如果該回合卡片丟完了，將所以丟出去卡片的生效回合(turn)減1，並將回合+1及抽卡，進入下一回合
+                        if (_CardDrawSystem.RoundCards[_CardDrawSystem.round] <= 0) {
+                            Debug.Log("Round end!!");
+                            _CardDrawSystem.CardDelete = true;
+                            _CardDrawSystem.countTurn();             
+                            _CardDrawSystem.round = _CardDrawSystem.round + 1;                                                       
+                            _CardDrawSystem.Button_CardDraw_Manager(); 
+                        }
+                        //_CardDrawSystem.CardLayerCheckManager();
+                        //_CardDrawSystem.CardSpreadSettingManager();
+                         
+                        //When the numerical alignment is complete, use automatic movement to move the card in your hand to that position.
+                        for (int i = 0; i < _CardDrawSystem.PlayerHandCardList.Count; i++)
+                        {
+                            _CardDrawSystem.PlayerHandCardList[i].GetComponent<HandCardSystem>().HandSpreadTrigger = true;
+                        }
+
+                        //Destroy used card.
+                        Destroy(this.gameObject);
+                    }
                 }
                 else
                 {

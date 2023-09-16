@@ -232,6 +232,9 @@ namespace SimpleCardDrawAndSpread_CardDrag
                 Debug.Log("CardDelete: " + CardDelete);
                 for (int i = 0; i < RemoveCardList.Count; i++){
                     RemoveCardList[i].turn = RemoveCardList[i].turn - 1;
+                    if(RemoveCardList[i].turn <= 0) {
+                        //將卡片內容生效
+                    }
                     Debug.Log("id: " + i);
                     Debug.Log("turn: " + RemoveCardList[i].turn);
                 }
