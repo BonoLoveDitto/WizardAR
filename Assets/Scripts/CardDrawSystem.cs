@@ -56,7 +56,8 @@ namespace SimpleCardDrawAndSpread_CardDrag
         public float CardSpeed_HandSpread;
 
         public bool CardDelete = false;
-        public List<HandCardSystem> RemoveCardList = new List<HandCardSystem>();         //被丟出去的卡片,而且turn不會0
+        public List<HandCardSystem> RemoveCardList = new List<HandCardSystem>();        //被丟出去的卡片,而且turn不會0
+        public List<HandCardSystem> RemoveCardList2 = new List<HandCardSystem>();
         public List<int> RoundCards = new List<int> {1,1,2,1,1,2};                          //每回合可以丟出去的卡片數
         public int round = 0;                               //第幾回合
 

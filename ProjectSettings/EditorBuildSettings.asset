@@ -7,14 +7,17 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/01-menu.unity
+    guid: a574a85d248d6344abcaaac302ed44f1
+  - enabled: 1
+    path: Assets/Scenes/05-LoadingLobby.unity
     guid: aa895a48c64664348bf395d5b3c0fdf1
   - enabled: 1
-    path: Assets/Scenes/Demo.unity
+    path: Assets/Scenes/03-setting.unity
+    guid: ad4d62bc97ff44549b94dfb4904ab518
+  - enabled: 1
+    path: Assets/Scenes/04-Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/02-deck.unity
     guid: 6568d25fb93d24b61a292ba12d1e6523
-  - enabled: 1
-    path: Assets/Scenes/03-setting.unity
-    guid: ad4d62bc97ff44549b94dfb4904ab518
   m_configObjects: {}
