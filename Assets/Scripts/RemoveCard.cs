@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace SimpleCardDrawAndSpread_RemoveCard{
-    public class RemoveCard : MonoBehaviour
+    [Serializable]
+    public class RemoveCard
     {
-        public int id;
+
         public int turn;
+        public int score;
     }
 }

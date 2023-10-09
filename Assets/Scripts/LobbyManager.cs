@@ -11,6 +11,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     private int maxPlayers = 2;
     private int playerCount = 0;
     private bool joinedRoom = false;
+    private List<string> nickname = new List<string> {"1","2"};
+    private int nicknameCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +35,16 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         if(joinedRoom){
             playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
             Debug.Log("room: " + PhotonNetwork.CountOfRooms + " ,room Players: " + playerCount);
-            if(playerCount == maxPlayers){
+            if(playerCount == maxPlayers)
+            {
+                //將每個player命名
+                foreach(Player p in PhotonNetwork.PlayerList){
+                    p.NickName = nickname[nicknameCount++];
+                    //Debug.Log("i'm " + p.NickName);
+                }
+                nicknameCount = 0;
+                
+                //切換到遊戲
                 SceneManager.LoadScene("04-Game");
             }
         }
@@ -62,7 +73,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         Debug.Log("Joined Randoim Failed");
         CreateRoom();
     }
-
+    
     //成功加入room
     public override void OnJoinedRoom() {
         Debug.Log("Room Joined");

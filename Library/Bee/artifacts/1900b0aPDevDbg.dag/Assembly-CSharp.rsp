@@ -345,6 +345,7 @@
 "Assets/Scripts/LobbyManager.cs"
 "Assets/Scripts/MenuManager.cs"
 "Assets/Scripts/RemoveCard.cs"
+"Assets/Scripts/RemoveCardSystem.cs"
 "Assets/Scripts/ScriptsCamera.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"

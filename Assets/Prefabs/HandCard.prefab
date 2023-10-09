@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 967394699
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9aba7be47365b9d4c9f1bdaf1159441d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 1052391777790814204}
   - component: {fileID: 1772892416355309022}
   - component: {fileID: 1772892416355309023}
+  - component: {fileID: 4841657660990179976}
   m_Layer: 0
   m_Name: HandCard
   m_TagString: Untagged
@@ -159,7 +160,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 967394699
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fb72dfbc2ef30c841a7dad8def123f41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -207,7 +208,7 @@ SortingGroup:
   m_GameObject: {fileID: 1772892416355309020}
   m_Enabled: 1
   m_SortingLayerID: 967394699
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!114 &1772892416355309023
 MonoBehaviour:
@@ -221,6 +222,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc12b630ac8937044926a0af3c784e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
+  name: 
+  score: 0
+  turn: 0
+  portion: 
+  skill: 
   CardIcon_Sprite: {fileID: 1772892414981864964}
   CardLayers:
   - {fileID: 1772892416355308993}
@@ -228,3 +235,25 @@ MonoBehaviour:
   CardUseLock: 1
   FirstDrawTrigger: 1
   HandSpreadTrigger: 0
+--- !u!114 &4841657660990179976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772892416355309020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
