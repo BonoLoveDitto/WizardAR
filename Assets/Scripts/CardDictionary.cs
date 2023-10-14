@@ -30,15 +30,6 @@ namespace SimpleCardDrawAndSpread_CardDictionary{
             Cards.Add(new Card() { id = cardNumber++, name = "厚道", score = 2, turn = 5, portion = "Chin", skill = "" }); 
             Cards.Add(new Card() { id = cardNumber++, name = "克蘇魯", score = 6, turn = 3, portion = "Chin", skill = "" });
             Cards.Add(new Card() { id = cardNumber++, name = "屁屁下巴", score = 3, turn = 4, portion = "Chin", skill = "" });
-            Cards.Add(new Card() { id = cardNumber++, name = "顏色", score = 2, turn =  3, portion = "EyeBrow", skill = "" });
-            Cards.Add(new Card() { id = cardNumber++, name = "粗眉毛", score = 3, turn = 4, portion = "EyeBrow", skill = "" });
-            Cards.Add(new Card() { id = cardNumber++, name = "沒有眉毛", score = 1, turn = 1, portion = "EyeBrow", skill = "" });
-            Cards.Add(new Card() { id = cardNumber++, name = "香吉士眉毛", score = 5, turn = 6, portion = "EyeBrow", skill = "" });
-            Cards.Add(new Card() { id = cardNumber++, name = "發光", score = 2, turn = 3, portion = "Eyes", skill = "" });
-            Cards.Add(new Card() { id = cardNumber++, name = "我推", score = 6, turn = 7, portion = "Eyes", skill = "" });
-            Cards.Add(new Card() { id = cardNumber++, name = "病懨懨", score = 1, turn = 1, portion = "Lips", skill = "" });
-            Cards.Add(new Card() { id = cardNumber++, name = "流血", score = 3, turn = 4, portion = "Lips", skill = "" });
-            Cards.Add(new Card() { id = cardNumber++, name = "口紅", score = 2, turn = 3, portion = "Lips", skill = "" });
             Cards.Add(new Card() { id = cardNumber++, name = "龍角", score = 10, turn = 10, portion = "Derivative", skill = "" });
             Cards.Add(new Card() { id = cardNumber++, name = "鹿角", score = 3, turn = 4, portion = "Derivative", skill = "" });
             Cards.Add(new Card() { id = cardNumber++, name = "小惡魔翅膀", score = 4, turn = 5, portion = "Derivative", skill = "" });
