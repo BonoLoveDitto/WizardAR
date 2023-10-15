@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using SimpleCardDrawAndSpread_HandCard;
 using SimpleCardDrawAndSpread_CardDictionary;
-using SimpleCardDrawAndSpread_RemoveCard;
+using SimpleCardDrawAndSpread_Card;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
@@ -61,14 +61,13 @@ namespace SimpleCardDrawAndSpread_CardDrag
         [HideInInspector] public List<float> HandCard_EachCardAngleList;
 
         [Header("Card Move Speed")]
-        public float CardSpeed_Draw;
-        public float CardSpeed_HandSpread;
-
-        public bool CardDelete = false;
-        public bool CardDelete2 = false;
+        [HideInInspector]public float CardSpeed_Draw;
+        [HideInInspector]public float CardSpeed_HandSpread;
+        [HideInInspector]public bool CardDelete = false;
+        [HideInInspector]public bool CardDelete2 = false;
         //被丟出去的卡片,而且turn不為0
-        public List<RemoveCard> RemoveCardList = new List<RemoveCard>();        
-        public List<RemoveCard> RemoveCardList2 = new List<RemoveCard>();
+        public List<Card> RemoveCardList = new List<Card>();        
+        public List<Card> RemoveCardList2 = new List<Card>();
         //每回合可以丟出去的卡片數
         public List<int> roundCards = new List<int> {1,1,1,2,1,1,2};
         public List<int> roundCards2 = new List<int> {1,1,1,2,1,1,2};
@@ -77,18 +76,19 @@ namespace SimpleCardDrawAndSpread_CardDrag
         public int round = 0;                               
         public int round2 = 0;
         public int PlayerID;
-        [Header("暫停")]
-        public bool roundFinish2;
-        public bool roundFinish;
-        public bool isPause = false;
-        public PhotonView _pv;
-        public PhotonView photonView;
+        //暫停
+        [HideInInspector]public bool roundFinish2;
+        [HideInInspector]public bool roundFinish;
+        [HideInInspector]public bool isPause = false;
+        [HideInInspector]public PhotonView _pv;
+        [HideInInspector]public PhotonView photonView;
         public int totalScore;
         public int totalScore2;
         [Header("timer")]
         public float timer = 0f;
-        public float targetTime = 60f;
-        public bool isTimeup = false;
+        [HideInInspector]public float targetTime = 60f;
+        [HideInInspector]public bool isTimeup = false;
+        [HideInInspector]Dictionary<string,bool> faceDictionary = new Dictionary<string,bool>{};
         // Start is called before the first frame update
         void Start()
         {
@@ -97,6 +97,7 @@ namespace SimpleCardDrawAndSpread_CardDrag
             _CardDictionary = new CardDictionary();
             _CardDictionary.Init();
             InitPlayer();
+            InitDictionary();
             photonView = GetComponent<PhotonView>();
             StartCoroutine(PlayerCardDrawManager(FirstDrawCount));
         }
@@ -122,6 +123,7 @@ namespace SimpleCardDrawAndSpread_CardDrag
             }
         }
 
+        //初始化玩家的資訊
         private void InitPlayer(){
             if(PhotonNetwork.NickName == "1") {
                 Debug.Log("I'm 1");
@@ -137,7 +139,15 @@ namespace SimpleCardDrawAndSpread_CardDrag
             }
         //PlayerCardDrawManager(FirstDrawCount);
         }
-
+        //初始化臉部的位置
+        private void InitDictionary(){
+            faceDictionary.Add("Nose",false);
+            faceDictionary.Add("Chin",false);
+            faceDictionary.Add("Derivative", false);
+            faceDictionary.Add("Ear", false);
+            faceDictionary.Add("Beard", false);
+        }
+        //原本按鈕抽卡
         public void Button_CardDraw_Manager()
         {
             //Draw cards as many as the NomalDrawCount number by recalling a particular button or function.
@@ -145,6 +155,7 @@ namespace SimpleCardDrawAndSpread_CardDrag
             StartCoroutine(PlayerCardDrawManager(NomalDrawCount));
         }
 
+        //卡片初始化
         public IEnumerator PlayerCardDrawManager(int CardCount)
         {
             while(true){
@@ -206,7 +217,8 @@ namespace SimpleCardDrawAndSpread_CardDrag
                 }
             }
         }
-
+        
+        //將不要用的卡片刪除，並排序
         public void CardLayerCheckManager()
         {
             //First, delete an empty object in the list.
@@ -241,6 +253,7 @@ namespace SimpleCardDrawAndSpread_CardDrag
 
         }
 
+        //手排的擴展
         public void CardSpreadSettingManager()
         {
             //The way to expand the card in this script is to find the angle using two guide objects in the CardHandPos position.
@@ -306,12 +319,17 @@ namespace SimpleCardDrawAndSpread_CardDrag
 
         }
 
+        //將丟棄的卡片加入RemoveCardList中，等待生成
         public void AddRemoveCard(int HandCardNumber){
             //因為Monobehavoiur不能被壓縮，所以加入新的一個class去存要被刪除的卡片，而且只需要知道他的生效回合跟分數
             HandCardSystem inputHandCardSystem = PlayerHandCardList[HandCardNumber].GetComponent<HandCardSystem>();
-            RemoveCard rc = new RemoveCard();
+            Card rc = new Card();
             rc.turn = inputHandCardSystem.turn;
             rc.score = inputHandCardSystem.score;
+            rc.name = inputHandCardSystem.name;
+            rc.portion = inputHandCardSystem.portion;
+            rc.id = inputHandCardSystem.id;
+
             //第一回合只能丟咒語卡
             if(round == 0 && inputHandCardSystem.portion == "咒語"){      //記得改if(_CardDrawSystem.round == 0 && inputHandCardSystem.portion != "咒語")
                 Debug.Log("Player 1: 第一回合只能丟咒語卡");
@@ -384,14 +402,20 @@ namespace SimpleCardDrawAndSpread_CardDrag
                 Debug.Log("CardDelete: " + CardDelete);
                 for (int i = 0; i < RemoveCardList.Count; i++){
                     RemoveCardList[i].turn = RemoveCardList[i].turn - 1;
-                    if(RemoveCardList[i].turn <= 0) {
-                        //將卡片內容生效
+                    if(RemoveCardList[i].turn == 0) {
+                        //卡片內容生效
+                        totalScore += RemoveCardList[i].score;
+                        _CardDictionary.FlagCombinationId(RemoveCardList[i].name);
+                        totalScore += _CardDictionary.CombinationBonus();
+                        Debug.Log("score: " + totalScore);
+
+                        //臉部位置有卡片生效
+                        if(faceDictionary.ContainsKey(RemoveCardList[i].portion)){
+                            faceDictionary[RemoveCardList[i].portion] = true;
+                        }
                     }
-                    Debug.Log("id: " + i);
-                    Debug.Log("turn: " + RemoveCardList[i].turn);
                 }
                 CardDelete = false;
-                //onDeleteCard();
             }
             else{
                 Debug.Log("CardDelete: " + CardDelete);
@@ -403,14 +427,20 @@ namespace SimpleCardDrawAndSpread_CardDrag
                 Debug.Log("CardDelete: " + CardDelete2);
                 for (int i = 0; i < RemoveCardList2.Count; i++){
                     RemoveCardList2[i].turn = RemoveCardList2[i].turn - 1;
-                    if(RemoveCardList2[i].turn <= 0) {
+                    if(RemoveCardList2[i].turn == 0) {
                         //將卡片內容生效
+                        totalScore2 += RemoveCardList2[i].score;
+                        _CardDictionary.FlagCombinationId(RemoveCardList2[i].name);
+                        totalScore2 += _CardDictionary.CombinationBonus();
+                        Debug.Log("Score: " + totalScore2);
+                        
+                        //臉部位置有卡片生效
+                        if(faceDictionary.ContainsKey(RemoveCardList2[i].portion)){
+                            faceDictionary[RemoveCardList2[i].portion] = true;
+                        }
                     }
-                    Debug.Log("id: " + i);
-                    Debug.Log("turn: " + RemoveCardList2[i].turn);
                 }
                 CardDelete2 = false;
-                //onDeleteCard();
             }
             else{
                 Debug.Log("CardDelete: " + CardDelete2);
@@ -458,9 +488,10 @@ namespace SimpleCardDrawAndSpread_CardDrag
             Debug.Log("Send Data!");
         }
 
-        [PunRPC] //接收資料後會做的事情
+        //接收資料後，將發送端改變的ReceiveRemoveCardList更新
+        [PunRPC] 
         public void ReceiveRemoveCardList(byte[] data){
-            RemoveCard _data = (RemoveCard)ByteArrayObject(data);
+           Card _data = (Card)ByteArrayObject(data);
             Debug.Log("(ReceiveRemoveCardList)turn: " + _data.turn + ", score: " +  _data.score);
             if(PlayerID == 1){
                 RemoveCardList2.Add(_data);
@@ -469,7 +500,8 @@ namespace SimpleCardDrawAndSpread_CardDrag
                 RemoveCardList2.Add(_data);
             }
         }
-
+        
+        //接收資料後,將發送端回合結束，告知對面
         [PunRPC]
         public void ReceiveRoundFinish(byte[] data){
             bool _data = (bool)ByteArrayObject(data);

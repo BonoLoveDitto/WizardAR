@@ -159,63 +159,63 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1562}
     - Class: 114
-      Script: {instanceID: 1622}
+      Script: {instanceID: 1620}
     - Class: 114
-      Script: {instanceID: 1672}
+      Script: {instanceID: 1670}
     - Class: 114
-      Script: {instanceID: 1840}
+      Script: {instanceID: 1838}
     - Class: 114
-      Script: {instanceID: 2326}
+      Script: {instanceID: 2324}
     - Class: 114
-      Script: {instanceID: 2486}
+      Script: {instanceID: 2484}
     - Class: 114
-      Script: {instanceID: 2822}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 3062}
+      Script: {instanceID: 3060}
     - Class: 114
-      Script: {instanceID: 3070}
+      Script: {instanceID: 3068}
     - Class: 114
-      Script: {instanceID: 3322}
+      Script: {instanceID: 3320}
     - Class: 114
-      Script: {instanceID: 4278}
+      Script: {instanceID: 4276}
     - Class: 114
-      Script: {instanceID: 4282}
+      Script: {instanceID: 4280}
     - Class: 114
-      Script: {instanceID: 4460}
+      Script: {instanceID: 4458}
     - Class: 114
-      Script: {instanceID: 4488}
+      Script: {instanceID: 4486}
     - Class: 114
-      Script: {instanceID: 4606}
+      Script: {instanceID: 4604}
     - Class: 114
-      Script: {instanceID: 4918}
+      Script: {instanceID: 4916}
     - Class: 114
-      Script: {instanceID: 5700}
+      Script: {instanceID: 5698}
     - Class: 114
-      Script: {instanceID: 5718}
+      Script: {instanceID: 5716}
     - Class: 114
-      Script: {instanceID: 5790}
+      Script: {instanceID: 5788}
     - Class: 114
-      Script: {instanceID: 6184}
+      Script: {instanceID: 6182}
     - Class: 114
-      Script: {instanceID: 6234}
+      Script: {instanceID: 6232}
     - Class: 114
-      Script: {instanceID: 6454}
+      Script: {instanceID: 6452}
     - Class: 114
-      Script: {instanceID: 6628}
+      Script: {instanceID: 6626}
     - Class: 114
-      Script: {instanceID: 7010}
+      Script: {instanceID: 7008}
     - Class: 114
-      Script: {instanceID: 7024}
+      Script: {instanceID: 7022}
     - Class: 114
-      Script: {instanceID: 7690}
+      Script: {instanceID: 7688}
     - Class: 114
-      Script: {instanceID: 8264}
+      Script: {instanceID: 8262}
     - Class: 114
-      Script: {instanceID: 8670}
+      Script: {instanceID: 8668}
     - Class: 114
-      Script: {instanceID: 8808}
+      Script: {instanceID: 8806}
     - Class: 114
-      Script: {instanceID: 9156}
+      Script: {instanceID: 9154}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -274,27 +274,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1564}
     - Class: 114
-      Script: {instanceID: 1622}
+      Script: {instanceID: 1620}
     - Class: 114
-      Script: {instanceID: 2486}
+      Script: {instanceID: 2484}
     - Class: 114
-      Script: {instanceID: 2822}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 3062}
+      Script: {instanceID: 3060}
     - Class: 114
-      Script: {instanceID: 4340}
+      Script: {instanceID: 4338}
     - Class: 114
-      Script: {instanceID: 5372}
+      Script: {instanceID: 5370}
     - Class: 114
-      Script: {instanceID: 5790}
+      Script: {instanceID: 5788}
     - Class: 114
-      Script: {instanceID: 6454}
+      Script: {instanceID: 6452}
     - Class: 114
-      Script: {instanceID: 6628}
+      Script: {instanceID: 6626}
     - Class: 114
-      Script: {instanceID: 7010}
+      Script: {instanceID: 7008}
     - Class: 114
-      Script: {instanceID: 8268}
+      Script: {instanceID: 8266}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -356,31 +356,31 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1622}
+      Script: {instanceID: 1620}
     - Class: 114
-      Script: {instanceID: 1928}
+      Script: {instanceID: 1926}
     - Class: 114
-      Script: {instanceID: 2468}
+      Script: {instanceID: 2466}
     - Class: 114
-      Script: {instanceID: 2822}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 3062}
+      Script: {instanceID: 3060}
     - Class: 114
-      Script: {instanceID: 3322}
+      Script: {instanceID: 3320}
     - Class: 114
-      Script: {instanceID: 5790}
+      Script: {instanceID: 5788}
     - Class: 114
-      Script: {instanceID: 6454}
+      Script: {instanceID: 6452}
     - Class: 114
-      Script: {instanceID: 6558}
+      Script: {instanceID: 6556}
     - Class: 114
-      Script: {instanceID: 6628}
+      Script: {instanceID: 6626}
     - Class: 114
-      Script: {instanceID: 7010}
+      Script: {instanceID: 7008}
     - Class: 114
-      Script: {instanceID: 7456}
+      Script: {instanceID: 7454}
     - Class: 114
-      Script: {instanceID: 8936}
+      Script: {instanceID: 8934}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -425,21 +425,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1562}
     - Class: 114
-      Script: {instanceID: 1622}
+      Script: {instanceID: 1620}
     - Class: 114
-      Script: {instanceID: 2052}
+      Script: {instanceID: 2050}
     - Class: 114
-      Script: {instanceID: 2822}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 3062}
+      Script: {instanceID: 3060}
     - Class: 114
-      Script: {instanceID: 5790}
+      Script: {instanceID: 5788}
     - Class: 114
-      Script: {instanceID: 6454}
+      Script: {instanceID: 6452}
     - Class: 114
-      Script: {instanceID: 6628}
+      Script: {instanceID: 6626}
     - Class: 114
-      Script: {instanceID: 7010}
+      Script: {instanceID: 7008}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -2372,4 +2372,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/03-setting.unity
   - Assets/Scenes/04-Game.unity
   - Assets/Scenes/02-deck.unity
-  playerPath: "C:/Users/D0947996/OneDrive - \u9022\u7532\u5927\u5B78/\u684C\u9762/ios\u7562\u696D\u5C08\u984Cbuild"
+  playerPath: "C:/Users/D0947996/OneDrive - \u9022\u7532\u5927\u5B78/\u684C\u9762/\u7562\u696D\u5C08\u984Cbuild(ios)"
