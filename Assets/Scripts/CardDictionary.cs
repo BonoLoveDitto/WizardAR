@@ -15,7 +15,7 @@ namespace SimpleCardDrawAndSpread_CardDictionary{
         public bool combination_CthulhuChin = false, combination_SmallDevelWing = false;
         public bool combination2_WitchNose = false, combination2_KindChin = false;
         public bool combination3_Mustache = false, combination3_BigEar = false, combination3_SmallEar = false, combination3_LongNose = false;
-    
+        public bool marvelOdd = false, marvelEven = false, frozen = false;
         // Start is called before the first frame update
         public void Init()
         {
@@ -40,13 +40,14 @@ namespace SimpleCardDrawAndSpread_CardDictionary{
             Cards.Add(new Card() { id = cardNumber++, name = "希特勒鬍", score = 10, turn = 10, portion = "Beard", skill = "" });
             Cards.Add(new Card() { id = cardNumber++, name = "山羊鬍子", score = 6, turn = 7, portion = "Beard", skill = "" });
             // 咒語卡
-            Cards.Add(new Card() { id = cardNumber++, name = "01", score = 0, turn = 0, portion = "咒語", skill = "抽一張牌且下回合可以額外打出一張牌" });
-            Cards.Add(new Card() { id = cardNumber++, name = "03", score = 0, turn = 0, portion = "咒語", skill = "加速偶數藥水0/-3" });
-            Cards.Add(new Card() { id = cardNumber++, name = "04", score = 0, turn = 0, portion = "咒語", skill = "使下一張藥水+2/-3" });
-            Cards.Add(new Card() { id = cardNumber++, name = "05", score = 0, turn = 0, portion = "咒語", skill = "使敵人下一張藥水0/+2" });
-            Cards.Add(new Card() { id = cardNumber++, name = "06", score = 0, turn = 0, portion = "咒語", skill = "已觸發的特徵 每有一個種類加1分" });
-            Cards.Add(new Card() { id = cardNumber++, name = "冷光神諭", score = 0, turn = 0, portion = "咒語", skill = "雙方玩家抽1張牌" });
-            Cards.Add(new Card() { id = cardNumber++, name = "親王", score = 0, turn = 0, portion = "咒語", skill = "若你牌堆中沒有分數5以上的牌,賦予你的牌堆中所有特徵+1/-1" });
+            Cards.Add(new Card() { id = cardNumber++, name = "01 快手", score = 0, turn = 0, portion = "咒語", skill = "抽一張牌且下回合可以額外打出一張牌" });
+            Cards.Add(new Card() { id = cardNumber++, name = "02 奇數驚奇", score = 0, turn = 0, portion = "咒語", skill = "抽一張牌且下回合可以額外打出一張牌" });
+            Cards.Add(new Card() { id = cardNumber++, name = "03 偶數驚奇", score = 0, turn = 0, portion = "咒語", skill = "加速偶數藥水0/-3" });
+            Cards.Add(new Card() { id = cardNumber++, name = "04 咒力強化", score = 0, turn = 0, portion = "咒語", skill = "使下一張藥水+2/-3" });
+            Cards.Add(new Card() { id = cardNumber++, name = "05 急速凍結", score = 0, turn = 0, portion = "咒語", skill = "使敵人下一張藥水0/+2" });
+            Cards.Add(new Card() { id = cardNumber++, name = "06 執法者", score = 0, turn = 0, portion = "咒語", skill = "已觸發的特徵 每有一個種類加1分" });
+            Cards.Add(new Card() { id = cardNumber++, name = "07 冷光神諭的祝福", score = 0, turn = 0, portion = "咒語", skill = "雙方玩家抽1張牌" });
+            Cards.Add(new Card() { id = cardNumber++, name = "08 親王", score = 0, turn = 0, portion = "咒語", skill = "若你牌堆中沒有分數5以上的牌,賦予你的牌堆中所有特徵+1/-1" });
 
             // 添加卡信息到字典中
             cardNumber = 0;
@@ -114,6 +115,33 @@ namespace SimpleCardDrawAndSpread_CardDictionary{
             }
             else if(name == "長鼻子"){
                 combination3_LongNose = true;
+            }
+        }
+
+        //咒語卡flag
+        public void spellCard(string name){
+            if(name == "02 奇數驚奇"){
+                marvelOdd = true;
+            }
+            else if(name == "03 偶數驚奇"){
+                marvelEven = true;
+            }
+        }
+
+        //奇偶數驚奇
+        public int spellEffect(int turn, int round){            
+            if(marvelOdd && (round % 2) == 1){
+                return turn - 3;
+            }
+            else if(marvelEven && (round % 2) == 0){
+                return turn - 3;
+            }
+            else if(frozen){
+                frozen = false;
+                return turn + 2;
+            }
+            else{
+                return turn;
             }
         }
     }

@@ -324,7 +324,13 @@ namespace SimpleCardDrawAndSpread_CardDrag
             //因為Monobehavoiur不能被壓縮，所以加入新的一個class去存要被刪除的卡片，而且只需要知道他的生效回合跟分數
             HandCardSystem inputHandCardSystem = PlayerHandCardList[HandCardNumber].GetComponent<HandCardSystem>();
             Card rc = new Card();
-            rc.turn = inputHandCardSystem.turn;
+            //有沒有咒語卡效果
+            if(PlayerID == 1){
+                rc.turn = _CardDictionary.spellEffect(inputHandCardSystem.turn, round);
+            }else{
+                rc.turn = _CardDictionary.spellEffect(inputHandCardSystem.turn, round2);
+
+            }
             rc.score = inputHandCardSystem.score;
             rc.name = inputHandCardSystem.name;
             rc.portion = inputHandCardSystem.portion;
@@ -404,14 +410,27 @@ namespace SimpleCardDrawAndSpread_CardDrag
                     RemoveCardList[i].turn = RemoveCardList[i].turn - 1;
                     if(RemoveCardList[i].turn == 0) {
                         //卡片內容生效
-                        totalScore += RemoveCardList[i].score;
-                        _CardDictionary.FlagCombinationId(RemoveCardList[i].name);
-                        totalScore += _CardDictionary.CombinationBonus();
-                        Debug.Log("score: " + totalScore);
+                        if(RemoveCardList[i].portion == "咒語"){
+                            _CardDictionary.spellCard(RemoveCardList[i].name);
+                            if(RemoveCardList[i].name == "07 冷光神諭的祝福"){
+                                SendData(true,"gb");
+                                round = round - 1;
+                                PlayerCardDrawManager(NomalDrawCount);
+                            }
+                            else if(RemoveCardList[i].name == "05 急速凍結"){
+                                SendData(true,"fz");
+                            }
+                        }
+                        else{
+                            totalScore += RemoveCardList[i].score;
+                            _CardDictionary.FlagCombinationId(RemoveCardList[i].name);
+                            totalScore += _CardDictionary.CombinationBonus();
+                            Debug.Log("score: " + totalScore);
 
-                        //臉部位置有卡片生效
-                        if(faceDictionary.ContainsKey(RemoveCardList[i].portion)){
-                            faceDictionary[RemoveCardList[i].portion] = true;
+                            //臉部位置有卡片生效
+                            if(faceDictionary.ContainsKey(RemoveCardList[i].portion)){
+                                faceDictionary[RemoveCardList[i].portion] = true;
+                            }
                         }
                     }
                 }
@@ -429,14 +448,28 @@ namespace SimpleCardDrawAndSpread_CardDrag
                     RemoveCardList2[i].turn = RemoveCardList2[i].turn - 1;
                     if(RemoveCardList2[i].turn == 0) {
                         //將卡片內容生效
-                        totalScore2 += RemoveCardList2[i].score;
-                        _CardDictionary.FlagCombinationId(RemoveCardList2[i].name);
-                        totalScore2 += _CardDictionary.CombinationBonus();
-                        Debug.Log("Score: " + totalScore2);
+                        if(RemoveCardList2[i].portion == "咒語"){
+                            _CardDictionary.spellCard(RemoveCardList2[i].name);
+
+                             if(RemoveCardList[i].name == "07 冷光神諭的祝福"){
+                                SendData(true,"gb");
+                                round2 = round2 - 1;
+                                PlayerCardDrawManager(NomalDrawCount);
+                            }
+                            else if(RemoveCardList2[i].name == "05 急速凍結"){
+                                SendData(true, "fz");
+                            }
+                        }
+                        else{
+                            totalScore2 += RemoveCardList2[i].score;
+                            _CardDictionary.FlagCombinationId(RemoveCardList2[i].name);
+                            totalScore2 += _CardDictionary.CombinationBonus();
+                            Debug.Log("Score: " + totalScore2);
                         
-                        //臉部位置有卡片生效
-                        if(faceDictionary.ContainsKey(RemoveCardList2[i].portion)){
-                            faceDictionary[RemoveCardList2[i].portion] = true;
+                            //臉部位置有卡片生效
+                            if(faceDictionary.ContainsKey(RemoveCardList2[i].portion)){
+                                faceDictionary[RemoveCardList2[i].portion] = true;
+                            }
                         }
                     }
                 }
@@ -485,6 +518,12 @@ namespace SimpleCardDrawAndSpread_CardDrag
             {
                 photonView.RPC("ReceiveRoundFinish", RpcTarget.Others, _byteData);
             }
+            else if(str == "gb"){
+                photonView.RPC("ReceiveGodBless", RpcTarget.Others, _byteData);
+            }
+            else if(str == "fz"){
+                photonView.RPC("ReceiveFrozen", RpcTarget.Others, _byteData);
+            }
             Debug.Log("Send Data!");
         }
 
@@ -513,6 +552,20 @@ namespace SimpleCardDrawAndSpread_CardDrag
                 roundFinish = _data;
                 Debug.Log("(ReceiveRoundFinish)RoundFinish = "+ roundFinish);
             }
+        }
+        [PunRPC]
+        public void RecevieGodBless(byte[] data){
+            if(PlayerID == 1){
+                round = round - 1;
+            }
+            else{
+                round2 = round2 - 1;
+            }
+            PlayerCardDrawManager(NomalDrawCount);
+        }
+        [PunRPC]
+        public void ReceiveFrozen(byte[] data){
+            _CardDictionary.frozen = true;
         }
     }
 }
